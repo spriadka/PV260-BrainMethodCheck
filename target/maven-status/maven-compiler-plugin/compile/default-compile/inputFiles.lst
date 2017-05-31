@@ -1,7 +1,0 @@
-/home/spriadka/School/PV260/checker/src/main/java/cz/muni/fi/pv260/checker/CyclomaticComplexityVisitor.java
-/home/spriadka/School/PV260/checker/src/main/java/cz/muni/fi/pv260/checker/BrainMethodCheck.java
-/home/spriadka/School/PV260/checker/src/main/java/cz/muni/fi/pv260/checker/VariableCountVisitor.java
-/home/spriadka/School/PV260/checker/src/main/java/cz/muni/fi/pv260/checker/AbstractCheckVisitor.java
-/home/spriadka/School/PV260/checker/src/main/java/cz/muni/fi/pv260/checker/NestedControlDepthVisitor.java
-/home/spriadka/School/PV260/checker/src/main/java/cz/muni/fi/pv260/checker/VisitReport.java
-/home/spriadka/School/PV260/checker/src/main/java/cz/muni/fi/pv260/checker/MethodLengthVisitor.java
