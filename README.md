@@ -8,7 +8,7 @@ Checkstyle check for detecting "Brain method" disharmonies
 ## Usage
 
 ```shell
-mvn clean install
+mvn clean install -DskipTests=true
 java -cp target/checker-1.0-SNAPSHOT.jar:checkstyle-7.7-all.jar com.puppycrawl.tools.checkstyle.Main -c <your-checkstyle-configuration.xml> <path/to/your/file.java>
 ```
 
