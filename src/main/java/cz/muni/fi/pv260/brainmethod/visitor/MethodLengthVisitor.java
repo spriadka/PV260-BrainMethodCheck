@@ -8,13 +8,13 @@ public class MethodLengthVisitor extends AbstractCheckVisitor {
 
     private int methodLength = 0;
 
-    private int max;
+    private int methodLengthMax;
 
-    public MethodLengthVisitor(BrainMethodCheck brainMethodCheck, int maxMethodLength){
+    public MethodLengthVisitor(BrainMethodCheck brainMethodCheck, int methodLengthMax){
         super(brainMethodCheck);
         acceptableTokens.add(TokenTypes.METHOD_DEF);
         methodLength = 0;
-        max = maxMethodLength;
+        this.methodLengthMax = methodLengthMax;
     }
 
     @Override
@@ -30,8 +30,8 @@ public class MethodLengthVisitor extends AbstractCheckVisitor {
         int firstLine = ast.getLineNo();
         DetailAST endCurlyParanthesis = ast.findFirstToken(TokenTypes.SLIST).getLastChild();
         methodLength = endCurlyParanthesis.getLineNo() - firstLine;
-        if (methodLength > max / 2){
-            String message = String.format("Method length exceeds maximum method length allowed, got %d, maximum is %d",methodLength,max);
+        if (methodLength > methodLengthMax / 2){
+            String message = String.format("Method length exceeds maximum method length allowed, got %d, maximum is %d",methodLength, methodLengthMax);
             report = new VisitReport(false,"Method Length",message);
         }
     }

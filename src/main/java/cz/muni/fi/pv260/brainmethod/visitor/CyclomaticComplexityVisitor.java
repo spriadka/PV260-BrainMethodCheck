@@ -11,9 +11,9 @@ public class CyclomaticComplexityVisitor extends AbstractCheckVisitor {
 
     private boolean switchBlockAsSingleDecisionPoint;
     private int currentCyclomaticComplexity;
-    private int max;
+    private int cyclomaticComplexityMax;
 
-    public CyclomaticComplexityVisitor(BrainMethodCheck check, boolean switchBlockAsSingleDecisionPoint, int max){
+    public CyclomaticComplexityVisitor(BrainMethodCheck check, boolean switchBlockAsSingleDecisionPoint, int cyclomaticComplexityMax){
         super(check);
         int[] tokens = new int[]{TokenTypes.INSTANCE_INIT,
                 TokenTypes.STATIC_INIT,
@@ -29,7 +29,7 @@ public class CyclomaticComplexityVisitor extends AbstractCheckVisitor {
                 TokenTypes.LOR};
         acceptableTokens.addAll(Arrays.stream(tokens).boxed().collect(Collectors.toSet()));
         currentCyclomaticComplexity = 0;
-        this.max = max;
+        this.cyclomaticComplexityMax = cyclomaticComplexityMax;
         this.switchBlockAsSingleDecisionPoint = switchBlockAsSingleDecisionPoint;
         report = new VisitReport(true,"CyclomaticComplexity","");
     }
@@ -62,8 +62,8 @@ public class CyclomaticComplexityVisitor extends AbstractCheckVisitor {
         if (!acceptableTokens.contains(ast.getType())){
             return;
         }
-        if (currentCyclomaticComplexity > max / 2) {
-            String message = String.format("Cyclomatic complexity exceeds limit, got %d, maximum allowed id %d",currentCyclomaticComplexity,max);
+        if (currentCyclomaticComplexity > cyclomaticComplexityMax / 2) {
+            String message = String.format("Cyclomatic complexity exceeds limit, got %d, maximum allowed id %d",currentCyclomaticComplexity, cyclomaticComplexityMax);
             report = new VisitReport(false,"Cyclomatic Complexity",message);
         }
     }

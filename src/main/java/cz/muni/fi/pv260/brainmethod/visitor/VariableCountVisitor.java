@@ -9,16 +9,16 @@ import java.util.Set;
 
 public class VariableCountVisitor extends AbstractCheckVisitor {
 
-    private int max;
+    private int variableCountMax;
     private Set<String> variableNames;
 
-    public VariableCountVisitor(BrainMethodCheck check, int max) {
+    public VariableCountVisitor(BrainMethodCheck check, int variableCountMax) {
         super(check);
         acceptableTokens.add(TokenTypes.VARIABLE_DEF);
         acceptableTokens.add(TokenTypes.PARAMETER_DEF);
         acceptableTokens.add(TokenTypes.EXPR);
         variableNames = new HashSet<>();
-        this.max = max;
+        this.variableCountMax = variableCountMax;
         name = "Variable Count";
         reset();
     }
@@ -48,8 +48,8 @@ public class VariableCountVisitor extends AbstractCheckVisitor {
         if (identifier != null){
             variableNames.add(identifier.getText());
         }
-        if (variableNames.size() > max){
-            String message = String.format("Found %d variables, maximum allowed is %d",variableNames.size(),max);
+        if (variableNames.size() > variableCountMax){
+            String message = String.format("Found %d variables, maximum allowed is %d",variableNames.size(), variableCountMax);
             report = new VisitReport(false,"Variable count exceeds line",message);
         }
     }

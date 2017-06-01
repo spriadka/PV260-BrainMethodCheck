@@ -97,7 +97,7 @@ public class BrainMethodCheck extends AbstractCheck {
         methodEntered = false;
         visitors.forEach(visitor -> {
             VisitReport report = visitor.getReport();
-            if (!report.hasPassed()){
+            if (report.hasFailed()){
                 log(ast,report.getMessage());
             }
         });

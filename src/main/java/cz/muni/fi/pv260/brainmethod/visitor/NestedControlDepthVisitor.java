@@ -6,18 +6,18 @@ import cz.muni.fi.pv260.brainmethod.BrainMethodCheck;
 
 public class NestedControlDepthVisitor extends AbstractCheckVisitor {
 
-    private int max;
+    private int nestedControlDepthMax;
     private int depth;
     private final String MSG_KEY = "nested.control.depth";
 
-    public NestedControlDepthVisitor(BrainMethodCheck check, int max){
+    public NestedControlDepthVisitor(BrainMethodCheck check, int nestedControlDepthMax){
         super(check);
         acceptableTokens.add(TokenTypes.LITERAL_FOR);
         acceptableTokens.add(TokenTypes.LITERAL_WHILE);
         acceptableTokens.add(TokenTypes.LITERAL_TRY);
         acceptableTokens.add(TokenTypes.LITERAL_IF);
         depth = 0;
-        this.max = max;
+        this.nestedControlDepthMax = nestedControlDepthMax;
         name = "Nested Control Depth";
         reset();
     }
@@ -31,9 +31,9 @@ public class NestedControlDepthVisitor extends AbstractCheckVisitor {
             if (!acceptableTokens.contains(ast.getType())){
                 return;
             }
-            if (depth > max)
+            if (depth > nestedControlDepthMax)
             {
-                String message = String.format("Maximum nested control depth is %d, got %d",max,depth);
+                String message = String.format("Maximum nested control depth is %d, got %d", nestedControlDepthMax,depth);
                 report = new VisitReport(false,"Nested Control Depth",message);
             }
             ++depth;

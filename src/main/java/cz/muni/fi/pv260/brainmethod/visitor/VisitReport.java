@@ -7,6 +7,8 @@ public class VisitReport {
         return passed;
     }
 
+    public boolean hasFailed() {return !passed;}
+
     public String getName() {
         return name;
     }
