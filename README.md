@@ -20,6 +20,10 @@ java -cp target/checker-1.0-SNAPSHOT.jar:checkstyle-7.7-all.jar com.puppycrawl.t
 ## Configutation file
 
 ```xml
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.3//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 <module name="Checker">
     <module name="TreeWalker">
         <!-- Need to be TreeWalker Child -->
