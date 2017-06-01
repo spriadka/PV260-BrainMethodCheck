@@ -1,6 +1,7 @@
-package cz.muni.fi.pv260.checker;
+package cz.muni.fi.pv260.brainmethod.visitor;
 
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import cz.muni.fi.pv260.brainmethod.BrainMethodCheck;
 
 import java.util.Collection;
 import java.util.HashSet;

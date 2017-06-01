@@ -4,7 +4,7 @@
         "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">
 <module name="Checker">
     <module name="TreeWalker">
-        <module name="cz.muni.fi.pv260.checker.BrainMethodCheck">
+        <module name="cz.muni.fi.pv260.brainmethod.BrainMethodCheck">
             <property name="cyclomaticComplexityMax" value="2"></property>
             <property name="nestedControlDepthMax" value="2"></property>
         </module>

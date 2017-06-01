@@ -1,8 +1,9 @@
-package cz.muni.fi.pv260.checker;
+package cz.muni.fi.pv260.brainmethod;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+import cz.muni.fi.pv260.brainmethod.visitor.*;
 
 import java.util.HashSet;
 import java.util.Set;

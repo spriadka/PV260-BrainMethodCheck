@@ -1,4 +1,4 @@
-package cz.muni.fi.pv260.checker;
+package cz.muni.fi.pv260.brainmethod.visitor;
 
 public class VisitReport {
     private boolean passed;
